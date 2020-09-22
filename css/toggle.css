@@ -50,11 +50,13 @@ nav ul li a{
     height: calc(100vh - 60px);
     background-color: #1B1B1B;
     z-index: 1000;
+    transition: all 0.3s ease-in-out;
 }
 aside ul {
     padding: 15px 2px;
     overflow: hidden;
     visibility: hidden;
+    transition: all 0.3s ease-in-out;
 }
 aside  ul li {
     list-style: none;
