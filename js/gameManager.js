@@ -25,7 +25,7 @@ let GameManager = {
         //set player
         let playerPage = document.querySelector("#character");
         console.log(name);
-        playerPage.innerHTML = '<img src= "/images/players/' + playerName +'.jpeg"> <div id = "players"><h3>' + name + '</h3><h5> Health: ' + player.health+'</h5><h5> Mana: '+ player.mana +'</h5><h5> Strength: '+ player.strength+'</h5><h5> Agility: '+ player.agility+ '</h5><h5> Speed: ' + player.speed+'</h5> </div> <div id ="search" onclick = "" > Search for Enemy</div>';
+        playerPage.innerHTML = '<img src= "/images/players/' + playerName +'.jpeg"> <div id = "players"><h3>' + name + '</h3><h5> Health: ' + player.health+'</h5><h5> Mana: '+ player.mana +'</h5><h5> Strength: '+ player.strength+'</h5><h5> Agility: '+ player.agility+ '</h5><h5> Speed: ' + player.speed+'</h5> </div> <div id ="search" onclick = "GameManager.setFight()" > Search for Enemy</div>';
 
     },
     setPreFight: function (){
@@ -38,5 +38,9 @@ let GameManager = {
         let arenaPage = document.querySelector('#arena');
 
         arenaPage.innerHTML = '<img src="/images/arena.jpeg" id="arena-image">';
+    },
+
+    setFight: function(){
+
     }
 }
