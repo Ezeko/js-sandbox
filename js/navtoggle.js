@@ -3,9 +3,9 @@ function toggle(){
     let asideSpan = document.querySelector("aside ul li span");
     let asideUl = document.querySelector("aside ul");
     let aside = document.querySelector("aside")
-    
+
     if( !bar.classList.contains('shown')){
-        asideUl.style.visibility= 'visible';
+        asideUl.style.visibility = 'visible';
         aside.style.width = "252px";
         bar.classList.add('shown');
         asideSpan.style.opacity = "0.5"

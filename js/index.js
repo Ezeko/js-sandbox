@@ -7,4 +7,12 @@ var mde = 'Ezekiel';
     return console.log(greeting);
 }(mde))
 
+function person (name, age, eyeColor){
+    this.name = name;
+    this.age = age;
+    this.eyeColor = eyeColor;
+}
+
+let person01 = new person('Abiola', 65, 'black');
+console.log(typeof(person01))
 //console.log(testFunction(name));
