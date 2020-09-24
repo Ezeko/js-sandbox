@@ -1,7 +1,7 @@
 let GameManager = {
     setGameStart: function (name){
         this.resetPlayer(name);
-        //this.setGameStart();
+        this.setPreFight();
     },
 
     resetPlayer: function (name){
@@ -20,15 +20,23 @@ let GameManager = {
         event.preventDefault();
         //set page
 
-        //set title
-        let titlePage = document.querySelector('#title');
-
-        titlePage.innerHTML = '<h1> Hero Game!!</h1> <h2> Setting Game!</h2>';
+        
         
         //set player
         let playerPage = document.querySelector("#character");
         console.log(name);
-        playerPage.innerHTML = '<img src= "/images/players/' + playerName +'.jpeg"> <div><h3>' + name + '</h3><h5> Health: ' + player.health+'</h5><h5> Mana: '+ player.mana +'</h5><h5> Strength: '+ player.strength+'</h5><h5> Agility: '+ player.agility+ '</h5><h5> Speed: ' + player.speed+'</h5> </div>';
+        playerPage.innerHTML = '<img src= "/images/players/' + playerName +'.jpeg"> <div id = "players"><h3>' + name + '</h3><h5> Health: ' + player.health+'</h5><h5> Mana: '+ player.mana +'</h5><h5> Strength: '+ player.strength+'</h5><h5> Agility: '+ player.agility+ '</h5><h5> Speed: ' + player.speed+'</h5> </div> <div id ="search" onclick = "" > Search for Enemy</div>';
+
     },
-    setPreFight: function (){}
+    setPreFight: function (){
+
+        //set title
+        let titlePage = document.querySelector('#title');
+
+        titlePage.innerHTML = '<h1> Hero Game!!</h1> <h2> Task: Choose an Enemy</h2>';
+
+        let arenaPage = document.querySelector('#arena');
+
+        arenaPage.innerHTML = '<img src="/images/arena.jpeg" id="arena-image">';
+    }
 }
