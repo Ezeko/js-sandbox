@@ -16,3 +16,20 @@ function person (name, age, eyeColor){
 let person01 = new person('Abiola', 65, 'black');
 console.log(typeof(person01))
 //console.log(testFunction(name));
+
+//Dom create elements test
+
+let newElement = document.createElement('a');
+let newTextNode = document.createTextNode('This is a new link created with dom');
+//append text to element
+
+newElement.append(newTextNode)
+
+let h1 = document.querySelector('#h1');
+
+//append tag to html
+
+h1.append(newElement);
+//add href
+
+newElement.setAttribute('href', 'www.google.com')
