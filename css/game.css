@@ -9,6 +9,9 @@ body{
     padding-left: 50px;
 
 }
+#title{
+    text-align: center;
+}
 #enemies{
     line-height: 2px;
     padding-left: 50px;
