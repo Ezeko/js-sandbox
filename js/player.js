@@ -16,21 +16,24 @@ PlayerManagement = {
             let playerStats = this.playerAttack();
 
             alert(`You hit ${playerStats[1]}, Damages made: ${playerStats[0]}`)
-            enemy.health = enemy.health - playerStats[1];
+            health = enemy.health - playerStats[1];
             //if enemy is not dead continue
-            if (enemy.health > 0) {
+            if (health > 0) {
+                enemy.health = health;
                 let getEnemyHealth = document.querySelector('#enemy-health');
 
-                getEnemyHealth.innerHTML = `Health ${enemy.health - playerStats[1]}`;
+                getEnemyHealth.innerHTML = `Health ${health}`;
 
                 let enemyStat = this.enemyAttack();
                 alert(`Enemy hit ${enemyStat[1]}, Damages made: ${enemyStat[0]}`)
-                player.health = player.health - enemyStat[1]
+                playerHealth = player.health - enemyStat[1]
+
+                player.health = playerHealth;
                 //if player is not dead, continue
-                if ((player.health - enemyStat[1]) > 0) {
+                if (playerHealth > 0) {
                     let getPlayerHealth = document.querySelector('#player-health');
 
-                    getPlayerHealth.innerHTML = `Health ${player.health - enemyStat[1]}`;
+                    getPlayerHealth.innerHTML = `Health ${playerHealth}`;
                     
 
                 }else {
@@ -51,6 +54,44 @@ PlayerManagement = {
 
         } else {
             //enemy to play first
+
+                let enemyStat = this.enemyAttack();
+    
+                alert(`Enemy hit ${enemyStat[1]}, Damages made: ${enemyStat[0]}`)
+                health = player.health - enemyStat[1];
+                //if player is not dead continue
+                if (health > 0) {
+                    player.health = health;
+                    let getPlayerHealth = document.querySelector('#player-health');
+    
+                    getPlayerHealth.innerHTML = `Health ${health}`;
+    
+                    let playerStats = this.playerAttack();
+                    alert(`You hit ${playerStats[1]}, Damages made: ${playerStats[0]}`)
+                    enemyHealth = enemy.health - playerStats[1]
+    
+                    enemy.health = enemyHealth;
+                    //if enemy is not dead, continue
+                    if (enemyHealth > 0) {
+                        let getEnemyHealth = document.querySelector('#enemy-health');
+    
+                        getEnemyHealth.innerHTML = `Health ${enemyHealth}`;
+                        
+    
+                    }else {
+                        let getEnemyHealth = document.querySelector('#enemy-health');
+    
+                        getEnemyHealth.innerHTML = 'Health 0';
+    
+                    alert('You Win!! Refresh Your browser to play again!!')
+                    }
+                } else {
+                    let getPlayerHealth = document.querySelector('#player-health');
+    
+                    getPlayerHealth.innerHTML = 'Health 0';
+    
+                    alert('Opps! You Lose!! Refresh Your browser to play again')
+                }
         }
 
     },
