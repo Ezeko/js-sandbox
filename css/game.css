@@ -9,6 +9,11 @@ body{
     padding-left: 50px;
 
 }
+#enemies{
+    line-height: 2px;
+    padding-left: 50px;
+
+}
 img{
     width: 250px;
     height: 250px;
@@ -29,11 +34,12 @@ a{
     border-radius: 0;
     height: 100px;
 }
-#search{
+#actions{
     text-align: center;
     background-color: red;
     color: #f1f1f1;
     height: 40px;
     line-height: 40px;
     margin-left: 20px;
+    visibility: hidden;
 }
