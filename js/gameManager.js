@@ -4,7 +4,7 @@ let GameManager = {
         this.setPreFight();
     },
 
-    resetPlayer: function (name) {
+    resetPlayer: function (name, ) {
         let playerName = name
         switch (name) {
             case 'Player One':
@@ -17,7 +17,7 @@ let GameManager = {
                 player = new Player(name, 100, 150, 120, 0, 100);
                 break;
         }
-        event.preventDefault();
+
         //set page
 
 
@@ -66,7 +66,7 @@ let GameManager = {
 
         let getActionField = document.querySelector('#actions')
 
-        getActionField.innerHTML = '<div onclick = "PlayerManagement.play()" > Attack!</div>';
+        getActionField.innerHTML = '<div onclick = "PlayerManagement.playGame()" > Attack!</div>';
 
         let enemyPage = document.querySelector('#enemy');
         //console.log(enemy);

@@ -10,16 +10,26 @@ function Player(name, health, speed, agility, mana, strength) {
 }
 
 PlayerManagement = {
+    playGame: function (){
+        if (player.health < 1 ){
+            alert(`${player.name} is dead and cannot continue this game!! Refresh browser to start again!`);
+        } else if (enemy.health < 1){
+            alert(`${enemy.name} is dead and cannot continue this game!! Refresh browser to start again!`);  
+        }else{
+            this.play();
+        }
+    },
     play: function () {
         //determine who to play first
-        if (player.speed >= enemy.speed) {
+        if (player.speed >= enemy.speed && player.health > 0 && enemy.health > 0) {
             let playerStats = this.playerAttack();
 
             alert(`You hit ${playerStats[1]}, Damages made: ${playerStats[0]}`)
             health = enemy.health - playerStats[1];
+            enemy.health = health;
             //if enemy is not dead continue
             if (health > 0) {
-                enemy.health = health;
+
                 let getEnemyHealth = document.querySelector('#enemy-health');
 
                 getEnemyHealth.innerHTML = `Health ${health}`;
@@ -59,9 +69,10 @@ PlayerManagement = {
     
                 alert(`Enemy hit ${enemyStat[1]}, Damages made: ${enemyStat[0]}`)
                 health = player.health - enemyStat[1];
+                player.health = health;
                 //if player is not dead continue
                 if (health > 0) {
-                    player.health = health;
+
                     let getPlayerHealth = document.querySelector('#player-health');
     
                     getPlayerHealth.innerHTML = `Health ${health}`;
