@@ -1,3 +1,23 @@
 body{
     background-color: grey;
 }
+
+#thumbnail img{
+    width: 30vw;
+}
+#thumbnail img:hover{
+    opacity: 0.8;
+}
+#firstRow{
+    padding-bottom: 2vh;
+}
+.new-img-background{
+    background-color: rgba(0, 0, 0, 0.95);
+    display: block;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
