@@ -23,21 +23,23 @@ allImages.forEach( function(image, index){
         
         newImg.onload = ( ()=>{
             let imgWidth = this.width;
-            console.log(windowWidth)
+            //console.log(windowWidth)
             let width = ((windowWidth - imgWidth)/2) - 450 ;
             let prevBtn = document.createElement('button');
-            newBg.appendChild(prevBtn);
+            body.appendChild(prevBtn);
             prevBtn.appendChild(document.createTextNode('Prev'));
             prevBtn.setAttribute('id', 'prev-btn');
+            prevBtn.setAttribute('class', 'prev-btn');
             prevBtn.style.cssText = `left: ${width}px;`;
             prevBtn.setAttribute('onclick', "changeImage('prev')");
 
             /**next button */
 
             let nextBtn = document.createElement('button');
-            newBg.appendChild(nextBtn);
+            body.appendChild(nextBtn);
             nextBtn.appendChild(document.createTextNode('Next'));
             nextBtn.setAttribute('id', 'prev-btn');
+            nextBtn.setAttribute('class', 'next-btn');
             nextBtn.style.cssText = `right: ${width + 145}px;`;
             nextBtn.setAttribute('onclick', "changeImage('next')");
 
@@ -47,10 +49,41 @@ allImages.forEach( function(image, index){
 })
 
 
-const closeImg = () =>{
+const closeImg = () => {
+    document.querySelector('.prev-btn').remove();
+    document.querySelector('.next-btn').remove();
     document.querySelector('.new-img-background').remove();
-    document.querySelector('#prev-btn').remove();
+    
 }
 
 /** function to handle switch of image */
 
+const changeImage = (status) => {
+    
+    //alert(`${status} button clicked`)
+    let imgTag = document.querySelector('.new-img');
+    let imageNum;
+
+    if (status == 'next'){
+        //if last image
+        if ( currentImage === allImages.length){
+            imageNum = 1;
+        } else{
+            imageNum = currentImage + 1;
+        }
+        //set image to next
+        currentImage = imageNum;
+        imgTag.setAttribute('src', `/images/img/img${imageNum}.jpeg`);
+       
+    }else {
+        //if first image
+        if ( currentImage === 1){
+            imageNum = allImages.length;
+        } else{
+            imageNum = currentImage - 1;
+        }
+        //set image to next
+        currentImage = imageNum;
+        imgTag.setAttribute('src', `/images/img/img${imageNum}.jpeg`);
+    }
+}
