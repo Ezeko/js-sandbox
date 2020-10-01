@@ -9,7 +9,15 @@ allImages.forEach( function(image, index){
         let newBg = document.createElement('div');
         body.appendChild(newBg);
         newBg.setAttribute('class', 'new-img-background');
-        newBg.setAttribute('onclick', 'closeImg()')
+        newBg.setAttribute('onclick', 'closeImg()');
+        currentImage = index + 1;
+
+        /** add image to the new div */
+        let newImg = document.createElement('img');
+        newImg.setAttribute('src', `/images/img/img${currentImage}.jpeg`);
+        newImg.setAttribute('class', 'new-img');
+
+        newBg.appendChild(newImg);
     })
 })
 
