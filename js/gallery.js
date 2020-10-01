@@ -49,9 +49,12 @@ allImages.forEach( function(image, index){
 })
 
 
-const closeImg = () => {
-    document.querySelector('.prev-btn').remove();
-    document.querySelector('.next-btn').remove();
+ function closeImg(){
+    let prevBtns = document.querySelectorAll('.prev-btn')
+    let nextBtns = document.querySelectorAll('.next-btn')
+
+    prevBtns.forEach((prevBtn) => prevBtn.remove()); //remove all prev buttons
+    nextBtns.forEach((nextBtn) => nextBtn.remove()); //remove all next buttons
     document.querySelector('.new-img-background').remove();
     
 }
