@@ -27,3 +27,15 @@ body{
     padding-left: 10vw;
     padding-top: 10vh;
 }
+#prev-btn{
+    display: block;
+    z-index: 500;
+    color: azure;
+    width: 4vw;
+    height: 4vh;
+    background-color: grey;
+    position: fixed;
+    top: 38vh;
+    border: none;
+    border-radius: 4px;
+}
