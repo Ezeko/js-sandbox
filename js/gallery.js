@@ -62,7 +62,10 @@ allImages.forEach( function(image, index){
 /** function to handle switch of image */
 
 const changeImage = (status) => {
-    
+    //remove next button
+    document.querySelector('.next-btn').remove();
+    //remove prev button
+    document.querySelector('.prev-btn').remove();
     //alert(`${status} button clicked`)
     let imgTag = document.querySelector('.new-img');
     let imageNum;
