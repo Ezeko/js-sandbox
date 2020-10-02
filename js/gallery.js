@@ -3,8 +3,8 @@ let allImages = document.querySelectorAll("#thumbnail img");
 let currentImage;
 let windowWidth = window.innerWidth;
 
-allImages.forEach( function(image, index){
-    image.addEventListener('click', function(){
+allImages.forEach( (image, index) => {
+    image.addEventListener('click', () => {
         //make extra background
         let newBg = document.createElement('div');
         body.appendChild(newBg);
@@ -21,7 +21,7 @@ allImages.forEach( function(image, index){
 
         //add next and prev buttons to page
         
-        newImg.onload = ( ()=>{
+        newImg.onload = ( ()=> {
             let imgWidth = this.width;
             //console.log(windowWidth)
             let width = ((windowWidth - imgWidth)/2) - 450 ;
@@ -49,7 +49,7 @@ allImages.forEach( function(image, index){
 })
 
 
- function closeImg(){
+const closeImg = ()=> {
     let prevBtns = document.querySelectorAll('.prev-btn')
     let nextBtns = document.querySelectorAll('.next-btn')
 
@@ -71,24 +71,18 @@ const changeImage = (status) => {
     let imageNum;
 
     if (status == 'next'){
-        //if last image
-        if ( currentImage === allImages.length){
-            imageNum = 1;
-        } else{
-            imageNum = currentImage + 1;
-        }
+        //if last image set image to first
+        currentImage === allImages.length ? imageNum = 1 : imageNum = currentImage + 1;
+
         //set image to next
         currentImage = imageNum;
         imgTag.setAttribute('src', `/images/img/img${imageNum}.jpeg`);
        
     }else {
-        //if first image
-        if ( currentImage === 1){
-            imageNum = allImages.length;
-        } else{
-            imageNum = currentImage - 1;
-        }
-        //set image to next
+        //if first image set to last image and set current image
+        currentImage === 1 ? imageNum = allImages.length : imageNum = currentImage - 1;
+        
+        //set image to previous and set current image
         currentImage = imageNum;
         imgTag.setAttribute('src', `/images/img/img${imageNum}.jpeg`);
     }
